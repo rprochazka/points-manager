@@ -1,0 +1,46 @@
+{
+  "points": [
+    {
+      "id": 1,
+      "owner": "Stepa",
+      "reason": "Vysavani",
+      "points": 5
+    },
+    {
+      "id": 2,
+      "owner": "Rozi",
+      "reason": "Utirani prachu",
+      "points": 5
+    },
+    {
+      "owner": "Stepa",
+      "reason": "Utirani prachu",
+      "points": 5,
+      "id": 3
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "key": "1",
+      "value": "Stepa"
+    },
+    {
+      "id": 2,
+      "key": "2",
+      "value": "Rozi"
+    }
+  ],
+  "reasons": [
+    {
+      "id": 1,
+      "key": "1",
+      "value": "Vysavani"
+    },
+    {
+      "id": 2,
+      "key": "2",
+      "value": "Utirani prachu"
+    }
+  ]
+}
