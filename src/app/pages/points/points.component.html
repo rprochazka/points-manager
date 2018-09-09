@@ -1,5 +1,5 @@
 <div>
-  <app-point-list [pointRecords]="pointRecords$ | async"></app-point-list>
+  <app-point-list [pointRecords]="pointRecords$ | async" (pageSizeChanged)="pageSize$.next($event)" (pageIndexChanged)="pageIndex$.next($event)"></app-point-list>
   <div>
     <button (click)="onAddItem()" class="btn btn-primary">Pridej</button>
   </div>

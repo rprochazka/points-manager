@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PointsService } from '../../services/points.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { IKeyValuePair } from '../../domain/key-value-pair';
 
 @Component({
   selector: 'app-create-point',
@@ -14,8 +13,8 @@ export class CreatePointComponent implements OnInit {
 
   form: FormGroup;
 
-  owners$: Observable<IKeyValuePair[]>;
-  reasons$: Observable<IKeyValuePair[]>;
+  owners$: Observable<string[]>;
+  reasons$: Observable<string[]>;
 
   constructor(private router: Router, private route: ActivatedRoute, private pointsService: PointsService,
     private fb: FormBuilder) { }

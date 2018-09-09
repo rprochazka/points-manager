@@ -3,14 +3,14 @@
   <div class="form-group">
     <label for="pointOwner">Komu</label>
     <select class="form-control" id="pointOwner" formControlName="owner">
-      <option *ngFor="let o of owners" [value]="o.value">{{o.value}}</option>
+      <option *ngFor="let o of owners" [value]="o">{{o}}</option>
     </select>
   </div>
 
   <div class="form-group">
     <label for="reason">Za co</label>
     <select class="form-control" id="reason" formControlName="reason">
-      <option *ngFor="let r of reasons" [value]="r.value">{{r.value}}</option>
+      <option *ngFor="let r of reasons" [value]="r">{{r}}</option>
     </select>
   </div>
 

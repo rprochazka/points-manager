@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IPointRecord } from '../../domain/point-record';
 import { FormGroup } from '@angular/forms';
-import { IKeyValuePair } from '../../domain/key-value-pair';
 
 @Component({
   selector: 'app-edit-point-form',
@@ -11,8 +10,8 @@ import { IKeyValuePair } from '../../domain/key-value-pair';
 export class EditPointFormComponent implements OnInit {
 
   @Input() form: FormGroup;
-  @Input() owners: IKeyValuePair[];
-  @Input() reasons: IKeyValuePair[];
+  @Input() owners: string[];
+  @Input() reasons: string[];
 
   constructor() { }
 

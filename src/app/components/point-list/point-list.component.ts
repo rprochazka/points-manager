@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { PagedItems } from '../../domain/point-record';
+import { PagingDataModel } from '../paging/paging-data.model';
 
 interface IPointRecord {
   owner: string;
@@ -13,6 +15,9 @@ interface IPointRecord {
 })
 export class PointListComponent {
 
-  @Input() pointRecords: IPointRecord[];
+  @Input() pointRecords: PagedItems<IPointRecord>;
+
+  @Output() pageSizeChanged: EventEmitter<number> = new EventEmitter<number>();
+  @Output() pageIndexChanged: EventEmitter<number> = new EventEmitter<number>();
 
 }

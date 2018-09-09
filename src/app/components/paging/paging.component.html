@@ -1,0 +1,24 @@
+<div class="row mt-2">
+  <div class="col-sm-12 col-md-6 d-flex align-items-center justify-content-center justify-content-md-start mb-2">
+    Showing
+
+    <select [(ngModel)]="pageSize" (change)="onPageSizeChanged($event.target.value)">
+      <option *ngFor="let pageSize of pageSizeLimits" [value]="pageSize">{{pageSize}}</option>
+      <option [value]="-1">All</option>
+    </select>
+
+    <!-- <select [formControl]="pageSize">
+      <option *ngFor="let pageSize of pageSizeLimits" [value]="pageSize">{{pageSize}}</option>
+      <option [value]="0">All</option>
+    </select> -->
+
+    of {{totalItemsCount}} entries
+  </div>
+  <div class="col-sm-12 col-md-6 d-flex align-items-center justify-content-center justify-content-md-end mb-2">
+    <ngb-pagination [collectionSize]="totalItemsCount" [page]="pageIndex" *ngIf="pageSize" [pageSize]="pageSize" [maxSize]="4"
+      boundaryLinks="true" (pageChange)="onPageIndexChanged($event)" size="sm"></ngb-pagination>
+  </div>
+  <pre>pageSize: {{pageSize}}</pre>
+  <pre>pageIndex: {{pageIndex}}</pre>
+  <pre>totalItemsCount: {{totalItemsCount}}</pre>
+</div>
