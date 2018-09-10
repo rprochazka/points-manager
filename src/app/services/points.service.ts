@@ -35,6 +35,7 @@ export class PointsService {
   }
 
   addPoint(pointRecord: IPointRecord): Observable<void> {
+    pointRecord.lastModifiedDate = new Date().toJSON();
     return this.httpClient.post<void>('http://localhost:3000/points', pointRecord)
       .pipe(
         catchError(this.handleError)
@@ -42,7 +43,7 @@ export class PointsService {
   }
 
   getOwners(): Observable<string[]> {
-    return of(['Stepa', 'Rozi']);
+    return of(['Stepa', 'Rozi', 'Radek', 'Iva']);
   }
 
   getReasons(): Observable<string[]> {

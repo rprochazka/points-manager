@@ -23,28 +23,12 @@
       "paidDate": null
     },
     {
-      "owner": "Radek",
-      "reason": "Utirani prachu",
-      "points": 8,
-      "id": 3
-    },
-    {
       "owner": "Stepa",
       "reason": "Vysavani",
-      "points": 7,
-      "id": 4
-    },
-    {
-      "owner": "Rozi",
-      "reason": "Utirani prachu",
-      "points": 8,
-      "id": 5
-    },
-    {
-      "owner": "Stepa",
-      "reason": "Utirani prachu",
       "points": 4,
-      "id": 6
+      "lastModifiedBy": "Radek",
+      "lastModifiedDate": "2018-09-10T05:06:38.974Z",
+      "id": 4
     }
   ]
 }

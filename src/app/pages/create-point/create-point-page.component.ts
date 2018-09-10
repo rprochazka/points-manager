@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PointsService } from '../../services/points.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -39,9 +39,10 @@ export class CreatePointPageComponent implements OnInit {
 
   private initForm(): void {
     this.form = this.fb.group({
-      owner: [''],
-      reason: [''],
-      points: [0]
+      owner: [null, Validators.required],
+      reason: [null, Validators.required],
+      points: [0, Validators.min(1)],
+      lastModifiedBy: [null, Validators.required]
     });
   }
 

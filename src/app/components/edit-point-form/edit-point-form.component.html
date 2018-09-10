@@ -19,6 +19,12 @@
     <input type="number" min="1" max="10" class="form-control" id="points" formControlName="points" />
   </div>
 
+  <div class="form-group">
+    <label for="lastModifiedBy">Zadal</label>
+    <select class="form-control" id="lastModifiedBy" formControlName="lastModifiedBy">
+      <option *ngFor="let o of owners" [value]="o">{{o}}</option>
+    </select>
+  </div>
 
   <!-- <div class="form-group">
     <label for="exampleTextarea">Example textarea</label>
