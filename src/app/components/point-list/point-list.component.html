@@ -1,19 +1,11 @@
 <div *ngIf="pointRecords">
 
-  <ngx-datatable class="material" [rows]="pointRecords.items" [columnMode]="'standard'" [headerHeight]="50" [footerHeight]="50"
-    [rowHeight]="'auto'">
+  <ngx-datatable class="material" [rows]="pointRecords.items" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [externalSorting]="true" [loadingIndicator]="loading" (sort)="onSortChanged($event)">
 
-    <ngx-datatable-column name="Kdo">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        {{row.owner}}
-      </ng-template>
-    </ngx-datatable-column>
+    <ngx-datatable-column name="Kdo" prop="owner"></ngx-datatable-column>
 
-    <ngx-datatable-column name="Za co">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        {{row.reason}}
-      </ng-template>
-    </ngx-datatable-column>
+    <ngx-datatable-column name="Za co" prop="reason"></ngx-datatable-column>
 
     <ngx-datatable-column name="Pocet bodu">
       <ng-template let-row="row" ngx-datatable-cell-template>
@@ -21,19 +13,15 @@
       </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column name="Zadal/Upravil">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        {{row.lastModifiedBy}}
-      </ng-template>
-    </ngx-datatable-column>
+    <ngx-datatable-column name="Zadal/Upravil" prop="lastModifiedBy"></ngx-datatable-column>
 
-    <ngx-datatable-column name="Dne">
+    <ngx-datatable-column name="Dne" prop="lastModifiedDate">
       <ng-template let-row="row" ngx-datatable-cell-template>
         {{row.lastModifiedDate}}
       </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column name="Proplaceno">
+    <ngx-datatable-column name="Proplaceno" prop="paidDate">
       <ng-template let-row="row" ngx-datatable-cell-template>
         {{row.paidDate}}
       </ng-template>

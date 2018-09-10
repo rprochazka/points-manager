@@ -2,7 +2,8 @@
   <div>
     <app-point-list-filter [owners]="owners$ | async" [reasons]="reasons$ | async" (filterChanged)="filters$.next($event)"></app-point-list-filter>
   </div>
-  <app-point-list [pointRecords]="pointRecords$ | async" (pageSizeChanged)="pageSize$.next($event)" (pageIndexChanged)="pageIndex$.next($event)"></app-point-list>
+  <app-point-list [pointRecords]="pointRecords$ | async" (pageSizeChanged)="pageSize$.next($event)" (pageIndexChanged)="pageIndex$.next($event)"
+    (sortChanged)="sorting$.next($event)"></app-point-list>
   <div>
     <button (click)="onAddItem()" class="btn btn-primary">Pridej</button>
   </div>
