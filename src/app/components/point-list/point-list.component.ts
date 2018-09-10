@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PagedItems } from '../../domain/point-record';
-import { PagingDataModel } from '../paging/paging-data.model';
 
 interface IPointRecord {
   owner: string;

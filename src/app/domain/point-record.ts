@@ -27,6 +27,8 @@ export class OrderBy {
 
 export class PointsFilter {
   owner: string;
+  reason: string;
+  lastModifiedBy: string;
   dateFrom: string;
   dateTo: string;
   paid: string;

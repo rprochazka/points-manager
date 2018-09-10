@@ -6,10 +6,10 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create-point',
-  templateUrl: './create-point.component.html',
-  styleUrls: ['./create-point.component.css']
+  templateUrl: './create-point-page.component.html',
+  styleUrls: ['./create-point-page.component.css']
 })
-export class CreatePointComponent implements OnInit {
+export class CreatePointPageComponent implements OnInit {
 
   form: FormGroup;
 

@@ -1,2 +1,2 @@
-export * from './create-point/create-point.component';
-export * from './points/points.component';
+export * from './create-point/create-point-page.component';
+export * from './points/points-page.component';

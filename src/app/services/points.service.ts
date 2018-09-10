@@ -76,7 +76,7 @@ export class PointsService {
   }
 
   private handleFiltering(pointsFilter: PointsFilter): string {
-    const filterKeys = ['owner', 'paid'];
+    const filterKeys = ['owner', 'reason', 'lastModifiedBy'];
     const paramsDic = [];
     Object.keys(pointsFilter).forEach((key) => {
       if (filterKeys.indexOf(key) > -1 && pointsFilter[key]) {

@@ -3,21 +3,39 @@
   <ngx-datatable class="material" [rows]="pointRecords.items" [columnMode]="'standard'" [headerHeight]="50" [footerHeight]="50"
     [rowHeight]="'auto'">
 
-    <ngx-datatable-column name="Kdo" [width]="300">
+    <ngx-datatable-column name="Kdo">
       <ng-template let-row="row" ngx-datatable-cell-template>
         {{row.owner}}
       </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column name="Za co" [width]="300">
+    <ngx-datatable-column name="Za co">
       <ng-template let-row="row" ngx-datatable-cell-template>
         {{row.reason}}
       </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column name="Pocet bodu" [width]="300">
+    <ngx-datatable-column name="Pocet bodu">
       <ng-template let-row="row" ngx-datatable-cell-template>
         {{row.points}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Zadal/Upravil">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.lastModifiedBy}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Dne">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.lastModifiedDate}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Proplaceno">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.paidDate}}
       </ng-template>
     </ngx-datatable-column>
 

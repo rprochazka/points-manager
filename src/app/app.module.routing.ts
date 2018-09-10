@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CreatePointComponent, PointsComponent } from './pages';
+import { CreatePointPageComponent, PointsPageComponent } from './pages';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'points' },
-  { path: 'points', pathMatch: 'full', component: PointsComponent },
-  { path: 'points/create', pathMatch: 'full', component: CreatePointComponent },
+  { path: 'points', pathMatch: 'full', component: PointsPageComponent },
+  { path: 'points/create', pathMatch: 'full', component: CreatePointPageComponent },
 ];
 
 @NgModule({
@@ -15,4 +15,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routedComponents = [CreatePointComponent, PointsComponent];
+export const routedComponents = [CreatePointPageComponent, PointsPageComponent];

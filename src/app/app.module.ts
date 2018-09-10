@@ -8,21 +8,20 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routedComponents } from './app.module.routing';
-import { EditPointFormComponent, PointListComponent } from './components';
-import { PointsService } from './services';
-import { PagingComponent } from './components/paging/paging.component';
+import { EditPointFormComponent, PointListComponent, PointListFilterComponent, PagingComponent } from './components';
 
 const components = [
   EditPointFormComponent,
-  PointListComponent
+  PointListComponent,
+  PointListFilterComponent,
+  PagingComponent
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     ...routedComponents,
-    ...components,
-    PagingComponent
+    ...components
   ],
   imports: [
     BrowserModule,
