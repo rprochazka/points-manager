@@ -50,6 +50,7 @@ export class EditPointPageComponent implements OnInit {
 
   private initForm(): void {
     this.form = this.fb.group({
+      pointId: null,
       owner: [null, Validators.required],
       reason: [null, Validators.required],
       note: [null],
