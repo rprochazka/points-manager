@@ -9,6 +9,9 @@
 /node_modules
 /src/server/node_modules
 
+# configs
+/src/server/env
+
 # IDEs and editors
 /.idea
 .project
