@@ -1,0 +1,43 @@
+<div *ngIf="pointRecords">
+
+  <ngx-datatable class="material" [rows]="pointRecords.items" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [externalSorting]="true" [loadingIndicator]="loading" (sort)="onSortChanged($event)">
+
+    <ngx-datatable-column name="Kdo" prop="owner"></ngx-datatable-column>
+
+    <ngx-datatable-column name="Za co" prop="reason"></ngx-datatable-column>
+
+    <ngx-datatable-column name="Pocet bodu">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.points}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Zadal/Upravil" prop="submitter"></ngx-datatable-column>
+
+    <ngx-datatable-column name="Dne" prop="lastModifiedDate">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.lastModifiedDate | date:'shortDate' }}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Proplaceno" prop="paidDate">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.paidDate}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <a [routerLink]="['./edit', row.pointId]">Uprav</a>
+      </ng-template>
+    </ngx-datatable-column>
+
+  </ngx-datatable>
+
+  <div>
+    <app-paging [totalItemsCount]="pointRecords.totalCount" [pageSize]="pointRecords.pageSize" [pageIndex]="pointRecords.pageIndex"
+      (pageSizeChanged)="pageSizeChanged.emit($event)" (pageIndexChanged)="pageIndexChanged.emit($event)">
+    </app-paging>
+  </div>
+</div>

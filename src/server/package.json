@@ -1,0 +1,20 @@
+{
+  "name": "points-manager-api",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run start:dev",
+    "start:dev": "cross-env NODE_ENV=dev node index.js",
+    "start:prod": "cross-env NODE_ENV=prod node index.js"
+  },
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "cross-env": "^5.2.0",
+    "express": "^4.15.3",
+    "mongoose": "^5.2.14",
+    "mongoose-plugin-autoinc": "^1.1.9"
+  },
+  "devDependencies": {}
+}
