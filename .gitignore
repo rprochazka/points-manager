@@ -7,10 +7,10 @@
 
 # dependencies
 /node_modules
-/src/server/node_modules
+/microservices/node-api/node_modules
 
 # configs
-/src/server/env
+/microservices/node-api/env
 
 # IDEs and editors
 /.idea
