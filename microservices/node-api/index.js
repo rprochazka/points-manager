@@ -19,9 +19,14 @@ console.log(`serving ${publicweb}`);
 
 app.use("/api", routes);
 
+app.get("/info", (req, resp) => {
+  var fullUrl = req.protocol + "://" + req.get("host") + req.originalUrl;
+  res.send({ fullUrl: fullUrl });
+});
+
 app.get("*", (req, res) => {
   res.sendFile(`index.html`, { root: publicweb });
 });
 
 const port = process.env.PORT || "3000";
-app.listen(port, () => console.log(`API running on localhost:${port}`));
+app.listen(port, () => console.log(`API running on port:${port}`));

@@ -153,6 +153,6 @@ export class PointsService {
   }
 
   private getBaseUlr(): string {
-    return "http://localhost:3000/api/points";
+    return `${window.location.origin}:3000/api/points`;
   }
 }

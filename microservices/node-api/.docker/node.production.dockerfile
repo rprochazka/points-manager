@@ -12,9 +12,9 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN npm install
+# RUN npm install
 # If you are building your code for production
-# RUN npm install --only=production
+RUN npm install --only=production
 
 # Bundle app source
 COPY . .
@@ -22,7 +22,7 @@ COPY . .
 # RUN npm install nodemon -g
 
 EXPOSE 3000
-CMD [ "npm", "start:development" ]
+CMD [ "npm", "run", "start:production" ]
 
 # ENTRYPOINT ["nodemon", "index.js"]
 

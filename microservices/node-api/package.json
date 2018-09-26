@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "npm run start:dev",
-    "start:dev": "cross-env NODE_ENV=dev node index.js",
-    "start:prod": "cross-env NODE_ENV=prod node index.js"
+    "start": "npm run start:development",
+    "start:development": "cross-env NODE_ENV=development node index.js",
+    "start:production": "cross-env NODE_ENV=production node index.js"
   },
   "private": true,
   "dependencies": {
