@@ -1,16 +1,17 @@
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable, throwError, from, of } from "rxjs";
-import { catchError, map } from "rxjs/operators";
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, throwError, from, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import {
   PagedItems,
   PointsFilter,
   OrderByDirection,
   IPointRecord
-} from "../domain";
+} from '../domain';
+import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class PointsService {
   constructor(private httpClient: HttpClient) {}
@@ -19,16 +20,16 @@ export class PointsService {
     const filterUrlParams = this.generateUrlFilterParams(pointsFilter);
     let url = this.getBaseUlr();
     if (filterUrlParams) {
-      url += "?" + filterUrlParams;
+      url += '?' + filterUrlParams;
     }
 
     return this.httpClient
-      .get<IPointRecord[]>(url, { observe: "response" })
+      .get<IPointRecord[]>(url, { observe: 'response' })
       .pipe(
         map(resp => {
           const response = new PagedItems();
           response.items = resp.body;
-          response.totalCount = Number(resp.headers.get("x-total-count"));
+          response.totalCount = Number(resp.headers.get('x-total-count'));
           response.pageSize = pointsFilter.queryOptions.take;
           response.pageIndex = pointsFilter.queryOptions.skipPages;
           return response;
@@ -58,21 +59,21 @@ export class PointsService {
   }
 
   getOwners(): Observable<string[]> {
-    return of(["Stepa", "Rozi"]);
+    return of(['Stepa', 'Rozi']);
   }
 
   getSubmitters(): Observable<string[]> {
-    return of(["Stepa", "Rozi", "Radek", "Iva"]);
+    return of(['Stepa', 'Rozi', 'Radek', 'Iva']);
   }
 
   getReasons(): Observable<string[]> {
-    return of(["Vysavani", "Utirani prachu"]);
+    return of(['Vysavani', 'Utirani prachu']);
   }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
-      console.error("An error occurred:", error.error.message);
+      console.error('An error occurred:', error.error.message);
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,
@@ -81,7 +82,7 @@ export class PointsService {
       );
     }
     // return an observable with a user-facing error message
-    return throwError("Something bad happened; please try again later.");
+    return throwError('Something bad happened; please try again later.');
   }
 
   private generateUrlFilterParams(pointsFilter: PointsFilter) {
@@ -91,11 +92,11 @@ export class PointsService {
     filterParams.push(this.handlePaging(pointsFilter));
     filterParams.push(this.handleSorting(pointsFilter));
 
-    return filterParams.filter(p => p).join("&");
+    return filterParams.filter(p => p).join('&');
   }
 
   private handleFiltering(pointsFilter: PointsFilter): string {
-    const filterKeys = ["owner", "reason", "submitter"];
+    const filterKeys = ['owner', 'reason', 'submitter'];
     const paramsDic = [];
     Object.keys(pointsFilter).forEach(key => {
       if (filterKeys.indexOf(key) > -1 && pointsFilter[key]) {
@@ -103,7 +104,7 @@ export class PointsService {
       }
     });
 
-    return paramsDic.join("&");
+    return paramsDic.join('&');
   }
 
   private handleSearching(pointsFilter: PointsFilter): string {
@@ -132,7 +133,7 @@ export class PointsService {
     ) {
       urlParams.push(`_page=${pointsFilter.queryOptions.skipPages}`);
     }
-    return urlParams.join("&");
+    return urlParams.join('&');
   }
 
   private handleSorting(pointsFilter: PointsFilter): string {
@@ -142,17 +143,17 @@ export class PointsService {
       if (orderBy) {
         urlParams.push(
           `_order=${
-            orderBy.direction === OrderByDirection.Asc ? "asc" : "desc"
+            orderBy.direction === OrderByDirection.Asc ? 'asc' : 'desc'
           }`
         );
         urlParams.push(`_sort=${orderBy.property}`);
       }
     }
 
-    return urlParams.join("&");
+    return urlParams.join('&');
   }
 
   private getBaseUlr(): string {
-    return `${window.location.origin}:3000/api/points`;
+    return `${environment.apiHostUrl}/api/points`;
   }
 }

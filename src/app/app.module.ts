@@ -29,6 +29,9 @@ const components = [
   PagingComponent
 ];
 
+import * as fromPoints from './reducers/points-reducer';
+import { PointsEffects } from './effects/points-effects';
+
 @NgModule({
   declarations: [AppComponent, ...routedComponents, ...components],
   imports: [
@@ -38,7 +41,7 @@ const components = [
     FormsModule,
     AppRoutingModule,
     NgbModule,
-    NgxDatatableModule
+    NgxDatatableModule,
 
     /**
      * StoreModule.forRoot is imported once in the root module, accepting a reducer
@@ -48,6 +51,9 @@ const components = [
      * based application.
      */
     // StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot({ points: fromPoints.reducer }),
+    EffectsModule.forRoot([PointsEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   providers: [],
   bootstrap: [AppComponent]
